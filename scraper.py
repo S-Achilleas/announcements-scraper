@@ -10,5 +10,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 
 articles = soup.find_all('article')
 for article in articles:
-    text = article.h2.text.strip()
-    print(text)
+    titles = article.h2.text.strip()
+    print(titles)
+    link = article.a['href']
+    print(link + '\n')
