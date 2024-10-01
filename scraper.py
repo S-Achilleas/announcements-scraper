@@ -6,3 +6,9 @@ headers = {
 }
 page = requests.get("https://www.unipi.gr/category/anakoinoseis-tmimatos-oikonomikis-epistimis/", headers=headers)
 soup = BeautifulSoup(page.content, 'html.parser')
+
+
+articles = soup.find_all('article')
+for article in articles:
+    text = article.h2.text.strip()
+    print(text)
